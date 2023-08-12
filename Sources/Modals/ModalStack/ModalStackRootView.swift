@@ -18,6 +18,7 @@ struct ModalStackRootView<Content: View>: View, Equatable {
         ZStack {
             Color.clear.ignoresSafeArea()
             content()
+                .edgesIgnoringSafeArea(.all)
         }
         .edgesIgnoringSafeArea(.all)
     }
