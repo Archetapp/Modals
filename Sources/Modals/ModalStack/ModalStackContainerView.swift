@@ -49,16 +49,12 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
             .edgesIgnoringSafeArea(.all)
             .mask(
                 ZStack {
-                    RoundedRectangle(cornerRadius: 0, style: .continuous)
-                        .edgesIgnoringSafeArea(.all)
+                    RoundedRectangle(cornerRadius: contentCornerRadius, style: .continuous)
                     Color.clear
-                        .edgesIgnoringSafeArea(.all)
                 }
                 .scaleEffect(contentScaleEffect, anchor: .center)
                 .offset(y: contentOffset)
-                .edgesIgnoringSafeArea(.all)
             )
-            .edgesIgnoringSafeArea(.all)
         }
         .edgesIgnoringSafeArea(.all)
         .onReceive(ModalSystem.shared.$modals, perform: { output in
