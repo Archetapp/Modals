@@ -24,6 +24,7 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
     var body: some View {
         ZStack(alignment: .top) {
             ModalSystem.shared.containerBackgroundColor.ignoresSafeArea()
+                .edgesIgnoringSafeArea(.all)
             ZStack(alignment: .top) {
                 ZStack {
                     ModalSystem.shared.contentBackgroundColor
@@ -41,6 +42,7 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
                 .saturation(contentSaturation)
                 .scaleEffect(contentScaleEffect, anchor: .center)
                 .offset(y: contentOffset)
+                .edgesIgnoringSafeArea(.all)
             }
             .mask(
                 ZStack {
@@ -52,7 +54,9 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
                 .offset(y: contentOffset)
                 .edgesIgnoringSafeArea(.all)
             )
+            .edgesIgnoringSafeArea(.all)
         }
+        .edgesIgnoringSafeArea(.all)
         .onReceive(ModalSystem.shared.$modals, perform: { output in
             modalsDidChange(output)
         })
@@ -101,7 +105,7 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
             }
             
             if ModalSystem.shared.isContentScalingEnabled {
-                contentScaleEffect = 1
+                contentScaleEffect = modalCount == 0 ? 1 : 0.92
                 contentCornerRadius = modalCount == 0 ? UIScreen.main.displayCornerRadius : 36
                 contentOffset = modalCount == 0 ? 0 : 30
             }
