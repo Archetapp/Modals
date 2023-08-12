@@ -39,14 +39,11 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
                 
                 ZStack {
                     EquatableView(content: ModalStackRootView<Content>(content: content))
-                        .edgesIgnoringSafeArea(.all)
                 }
                 .saturation(contentSaturation)
                 .scaleEffect(contentScaleEffect, anchor: .center)
                 .offset(y: contentOffset)
-                .edgesIgnoringSafeArea(.all)
             }
-            .edgesIgnoringSafeArea(.all)
             .mask(
                 ZStack {
                     RoundedRectangle(cornerRadius: contentCornerRadius, style: .continuous)
