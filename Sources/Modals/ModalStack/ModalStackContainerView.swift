@@ -47,7 +47,7 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
             }
             .mask(
                 ZStack {
-                    RoundedRectangle(cornerRadius: contentCornerRadius, style: .continuous)
+                    Rectangle()
                     Color.clear
                 }
                 .scaleEffect(contentScaleEffect, anchor: .center)
