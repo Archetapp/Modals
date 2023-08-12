@@ -21,10 +21,10 @@ struct ModalSystemView: View {
                     index: index,
                     isTopModal: index == modals.count - 1
                 )
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             }
         }
-        .edgesIgnoringSafeArea(.all)
+        .ignoresSafeArea()
         .onReceive(ModalSystem.shared.$modals, perform: { output in
             self.modals = output
         })

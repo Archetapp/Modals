@@ -24,22 +24,23 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
     var body: some View {
         ZStack(alignment: .top) {
             ModalSystem.shared.containerBackgroundColor
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             ZStack(alignment: .top) {
                 ZStack {
                     ModalSystem.shared.contentBackgroundColor
                         .saturation(contentSaturation)
                         .scaleEffect(contentScaleEffect, anchor: .center)
                         .offset(y: contentOffset)
-                        .edgesIgnoringSafeArea(.all)
+                        .ignoresSafeArea()
                     Color.clear
-                        .edgesIgnoringSafeArea(.all)
+                        .ignoresSafeArea()
                 }
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
                 
                 ZStack {
                     EquatableView(content: ModalStackRootView<Content>(content: content))
                 }
+                .ignoresSafeArea(.all, edges: .all)
                 .saturation(contentSaturation)
                 .scaleEffect(contentScaleEffect, anchor: .center)
                 .offset(y: contentOffset)
@@ -53,7 +54,7 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
                 .offset(y: contentOffset)
             )
         }
-        .edgesIgnoringSafeArea(.all)
+        .ignoresSafeArea()
         .onReceive(ModalSystem.shared.$modals, perform: { output in
             modalsDidChange(output)
         })

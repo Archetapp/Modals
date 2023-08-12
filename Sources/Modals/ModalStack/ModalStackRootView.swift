@@ -16,12 +16,12 @@ struct ModalStackRootView<Content: View>: View, Equatable {
     
     var body: some View {
         ZStack {
-            Color.clear.edgesIgnoringSafeArea(.all)
+            Color.clear.ignoresSafeArea()
                 .overlay {
                     content()
-                        .edgesIgnoringSafeArea(.all)
+                        .ignoresSafeArea()
                 }
         }
-        .edgesIgnoringSafeArea(.all)
+        .ignoresSafeArea()
     }
 }
