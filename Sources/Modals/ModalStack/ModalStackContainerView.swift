@@ -39,6 +39,7 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
                 
                 ZStack {
                     EquatableView(content: ModalStackRootView<Content>(content: content))
+                        .edgesIgnoringSafeArea(.all)
                 }
                 .saturation(contentSaturation)
                 .scaleEffect(contentScaleEffect, anchor: .center)

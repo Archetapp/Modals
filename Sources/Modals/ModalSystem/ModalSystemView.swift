@@ -21,6 +21,7 @@ struct ModalSystemView: View {
                     index: index,
                     isTopModal: index == modals.count - 1
                 )
+                .edgesIgnoringSafeArea(.all)
             }
         }
         .edgesIgnoringSafeArea(.all)
