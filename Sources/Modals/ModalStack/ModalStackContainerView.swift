@@ -23,7 +23,7 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
     
     var body: some View {
         ZStack(alignment: .top) {
-            ModalSystem.shared.containerBackgroundColor.ignoresSafeArea()
+            ModalSystem.shared.containerBackgroundColor
                 .edgesIgnoringSafeArea(.all)
             ZStack(alignment: .top) {
                 ZStack {
@@ -39,7 +39,6 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
                 
                 ZStack {
                     EquatableView(content: ModalStackRootView<Content>(content: content))
-                        .edgesIgnoringSafeArea(.all)
                 }
                 .saturation(contentSaturation)
                 .scaleEffect(contentScaleEffect, anchor: .center)
@@ -47,7 +46,7 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
             }
             .mask(
                 ZStack {
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: contentCornerRadius, style: .continuous)
                     Color.clear
                 }
                 .scaleEffect(contentScaleEffect, anchor: .center)
