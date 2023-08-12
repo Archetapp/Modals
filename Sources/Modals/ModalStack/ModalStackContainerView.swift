@@ -36,21 +36,20 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
                         .edgesIgnoringSafeArea(.all)
                 }
                 .edgesIgnoringSafeArea(.all)
-                .overlay {
-                    ZStack {
-                        EquatableView(content: ModalStackRootView<Content>(content: content))
-                            .edgesIgnoringSafeArea(.all)
-                    }
-                    .saturation(contentSaturation)
-                    .scaleEffect(contentScaleEffect, anchor: .center)
-                    .offset(y: contentOffset)
-                    .edgesIgnoringSafeArea(.all)
+                
+                ZStack {
+                    EquatableView(content: ModalStackRootView<Content>(content: content))
+                        .edgesIgnoringSafeArea(.all)
                 }
+                .saturation(contentSaturation)
+                .scaleEffect(contentScaleEffect, anchor: .center)
+                .offset(y: contentOffset)
+                .edgesIgnoringSafeArea(.all)
             }
             .edgesIgnoringSafeArea(.all)
             .mask(
                 ZStack {
-                    RoundedRectangle(cornerRadius: contentCornerRadius, style: .continuous)
+                    RoundedRectangle(cornerRadius: 0, style: .continuous)
                         .edgesIgnoringSafeArea(.all)
                     Color.clear
                         .edgesIgnoringSafeArea(.all)
