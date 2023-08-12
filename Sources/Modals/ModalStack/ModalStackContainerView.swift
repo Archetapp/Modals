@@ -28,10 +28,10 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
             ZStack(alignment: .top) {
                 ZStack {
                     ModalSystem.shared.contentBackgroundColor
-                        .edgesIgnoringSafeArea(.all)
                         .saturation(contentSaturation)
                         .scaleEffect(contentScaleEffect, anchor: .center)
                         .offset(y: contentOffset)
+                        .edgesIgnoringSafeArea(.all)
                     Color.clear
                         .edgesIgnoringSafeArea(.all)
                 }
@@ -46,6 +46,7 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
                 .offset(y: contentOffset)
                 .edgesIgnoringSafeArea(.all)
             }
+            .edgesIgnoringSafeArea(.all)
             .mask(
                 ZStack {
                     RoundedRectangle(cornerRadius: contentCornerRadius, style: .continuous)

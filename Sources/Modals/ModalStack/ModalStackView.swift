@@ -19,8 +19,11 @@ public struct ModalStackView<Content: View>: View {
     public var body: some View {
         ZStack {
             ModalStackContainerView<Content>(content: content)
+                .edgesIgnoringSafeArea(.all)
             ModalSystemView()
+                .edgesIgnoringSafeArea(.all)
         }
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
