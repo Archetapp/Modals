@@ -9,13 +9,13 @@ import Foundation
 import SwiftUI
 
 public struct ModalSystemDismissAction {
-    private var action: () -> Void
+    public var action: () -> Void
     
-    func callAsFunction() {
+    public  func callAsFunction() {
         action()
     }
     
-    init(action: @escaping () -> Void = { }) {
+    public init(action: @escaping () -> Void = { }) {
         self.action = action
     }
 }
