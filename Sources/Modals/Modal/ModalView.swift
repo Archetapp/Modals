@@ -14,7 +14,7 @@ struct ModalView: View {
     
     var index: Int
     var isTopModal: Bool
-    var modal: Modal
+    @State var modal: Modal
     
     @GestureState private var isDragging: Bool
     @State private var containerOffset: CGFloat
@@ -152,6 +152,11 @@ struct ModalView: View {
                         }
                     }
                 }
+                .onChange(of: modal.isPresented, perform: { newValue in
+                    if !newValue {
+                        close()
+                    }
+                })
                 .onChange(of: isDragging) { newValue in
                     if !newValue {
                         dragToCloseGestureDidEnd(containerOffset)

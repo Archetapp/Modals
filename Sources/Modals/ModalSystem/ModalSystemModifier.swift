@@ -31,8 +31,6 @@ struct ModalSystemModifier<V: View>: ViewModifier {
                             view: AnyView(view())
                         )
                     )
-                } else {
-                    ModalSystem.shared.modals.removeLast()
                 }
             }
     }
