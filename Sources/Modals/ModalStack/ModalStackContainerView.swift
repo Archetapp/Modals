@@ -78,7 +78,7 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
             if ModalSystem.shared.isContentScalingEnabled {
                 contentScaleEffect = 0.95 + (0.08 * newValue)
                 contentCornerRadius = 36 + (UIScreen.main.displayCornerRadius - 36) * newValue
-                contentOffset = 30 - (30 * newValue)
+                contentOffset = 10 - (30 * newValue)
             }
         }
     }
