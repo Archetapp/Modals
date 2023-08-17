@@ -103,9 +103,9 @@ struct ModalStackContainerView<Content: View>: View, Equatable {
             }
             
             if ModalSystem.shared.isContentScalingEnabled {
-                contentScaleEffect = modalCount == 0 ? 1 : 0.92
+                contentScaleEffect = modalCount == 0 ? 1 : 0.96
                 contentCornerRadius = modalCount == 0 ? UIScreen.main.displayCornerRadius : 36
-                contentOffset = modalCount == 0 ? 0 : 30
+                contentOffset = modalCount == 0 ? 0 : 0
             }
         }
         
